@@ -4,16 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import dataATM.CardInformation;
 import modelATM.Capital;
 import modelATM.Login;
-import viewATM.ViewLogin;
 import viewATM.ViewCapital;
+import viewATM.ViewLogin;
 
 public class ControllerLogin {
 
@@ -149,8 +146,7 @@ public class ControllerLogin {
 			public void actionPerformed(ActionEvent e) {
 				if (viewLogin.getPasswordField().getText().length() > 0) {
 
-					viewLogin.getPasswordField().setText(viewLogin.getPasswordField().getText().substring(0,
-							viewLogin.getPasswordField().getText().length() - 1));
+					viewLogin.getPasswordField().setText("");
 				}
 
 			}
@@ -181,7 +177,7 @@ public class ControllerLogin {
 	public void reset() {
 		viewLogin.getCard().setBounds(0, 359, 60, 90);
 		viewLogin.getTextSTK().setText("");
-		viewLogin.getLblWelcome1().setText("   XIN K\u00CDNH CH\u00C0O QU\u00DD KH\u00C1CH ");
+		viewLogin.getLblWelcome1().setText("   XIN KÍNH CHÀO QUÝ KHÁCH ");
 		viewLogin.getPasswordField().setText("");
 		viewLogin.getLblWelcome().setText(" QUÝ KHÁCH VUI LÒNG ĐƯA THẺ VÀO");
 		viewLogin.getPasswordField().setVisible(false);

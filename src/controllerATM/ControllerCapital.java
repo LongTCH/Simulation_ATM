@@ -39,7 +39,13 @@ public class ControllerCapital {
 			public void actionPerformed(ActionEvent e) {
 				ViewLogin vLogin = new ViewLogin();
 				vLogin.setVisible(true);
-				Login lo = new Login(capital.getAtm(), capital.getCardInformation());
+				Login lo;
+				try {
+					lo = new Login(capital.getAtm());
+				} catch (Throwable e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				ControllerLogin cl = new ControllerLogin(vLogin, lo);
 
 				viewCapital.dispose();
@@ -53,7 +59,7 @@ public class ControllerCapital {
 			public void actionPerformed(ActionEvent e) {
 				ViewChangePIN vChangePIN = new ViewChangePIN();
 				vChangePIN.setVisible(true);
-				ChangePIN changePIN = new ChangePIN(capital.getAtm(), capital.getCardInformation());
+				ChangePIN changePIN = new ChangePIN(capital.getAtm());
 				viewCapital.dispose();
 				ControllerChangePIN cChangePIN = new ControllerChangePIN(vChangePIN, changePIN);
 

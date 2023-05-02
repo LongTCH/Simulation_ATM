@@ -9,7 +9,7 @@ import modelATM.Login;
 import viewATM.ViewLogin;
 
 public class mainATM {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable {
 		CardInformation c = new CardInformation("45320000558", "000000", "Vũ Văn Minh", "13579", "09174041457",
 				3000000);
 		CardInformation c1 = new CardInformation("4532068889", "111111", "Triệu Huệ Mẫn", "57373", "0949575829",
@@ -25,12 +25,12 @@ public class mainATM {
 		vLogin.setVisible(true);
 
 		ATM atm = new ATM();
-		atm.setATM("4532068889");
+		atm.setATM("45320000558");
 
-		Login login = new Login(atm, card);
-//	
+		Login login = new Login(atm);
+		//
 		ControllerLogin cLogin = new ControllerLogin(vLogin, login);
-		
-//	
+
+		//
 	}
 }

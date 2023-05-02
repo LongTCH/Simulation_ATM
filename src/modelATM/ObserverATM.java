@@ -1,7 +1,6 @@
 package modelATM;
 
 public interface ObserverATM {
-	public void updateATM();
-	
+	public void updateATM() throws Throwable;
 
 }

@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import dataATM.CardInformation;
 import modelATM.Login;
 import modelATM.WithDrawal;
 import viewATM.ViewLogin;
@@ -58,7 +57,13 @@ public class ControllerWithDrawal2 {
 			public void actionPerformed(ActionEvent e) {
 				ViewLogin vLogin = new ViewLogin();
 				vLogin.setVisible(true);
-				Login lo = new Login(withDrawal.getAtm(), withDrawal.getCardInformation());
+				Login lo;
+				try {
+					lo = new Login(withDrawal.getAtm());
+				} catch (Throwable e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				ControllerLogin cl = new ControllerLogin(vLogin, lo);
 
 				viewWithDrawal2.dispose();
@@ -88,8 +93,14 @@ public class ControllerWithDrawal2 {
 				viewWithDrawal2.dispose();
 				ViewLogin vLogin = new ViewLogin();
 				vLogin.setVisible(true);
-				Login lo = new Login(withDrawal.getAtm(), withDrawal.getCardInformation());
-				ControllerLogin cl = new ControllerLogin(vLogin, lo);
+				Login lo;
+				try {
+					lo = new Login(withDrawal.getAtm());
+					ControllerLogin cl = new ControllerLogin(vLogin, lo);
+				} catch (Throwable e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 			}
 		});

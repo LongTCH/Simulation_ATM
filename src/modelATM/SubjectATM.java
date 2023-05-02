@@ -6,7 +6,7 @@ public interface SubjectATM {
 
 	public void removeObserverATM(ObserverATM o);
 
-	public void notifyATM();
+	public void notifyATM() throws Throwable;
 
 	public String getNumberCard();
 

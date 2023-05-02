@@ -25,7 +25,7 @@ public class ATM implements SubjectATM {
 	}
 
 	@Override
-	public void notifyATM() {
+	public void notifyATM() throws Throwable {
 		for (ObserverATM o : observer) {
 			o.updateATM();
 
@@ -33,7 +33,7 @@ public class ATM implements SubjectATM {
 
 	}
 
-	public void setATM(String numberCard) {
+	public void setATM(String numberCard) throws Throwable {
 		this.numberCard = numberCard;
 		notifyATM();
 	}

@@ -1,34 +1,26 @@
 package modelATM;
 
-import java.util.ArrayList;
-
 import dataATM.CardInformation;
+import service.CardService;
 
 public class ChangePIN implements ObserverATM {
 	private SubjectATM atm;
-	private ArrayList<CardInformation> cardInformation;
 	private String pin;
 	private String numberCard;
 	private Login login;
 
-	public ChangePIN(SubjectATM atm, ArrayList<CardInformation> cardInformation) {
+	public ChangePIN(SubjectATM atm) throws Throwable {
 		this.atm = atm;
 		atm.registerObserverATM(this);
-		this.cardInformation = cardInformation;
-		cardInformation = new ArrayList<CardInformation>();
 		this.updateATM();
-		this.login = new Login(this.atm, this.cardInformation);
+		this.login = new Login(this.atm);
 
 	}
 
 	@Override
-	public void updateATM() {
+	public void updateATM() throws Throwable {
 		this.numberCard = atm.getNumberCard();
-		for (CardInformation cardInformation2 : cardInformation) {
-			if (cardInformation2.getDataNumberCard().equals(numberCard)) {
-				pin = cardInformation2.getPin();
-			}
-		}
+		pin = new CardService().getPin(numberCard);
 	}
 
 	public boolean checkPIN(String textPin) {
@@ -58,10 +50,6 @@ public class ChangePIN implements ObserverATM {
 
 	public SubjectATM getAtm() {
 		return atm;
-	}
-
-	public ArrayList<CardInformation> getCardInformation() {
-		return cardInformation;
 	}
 
 }
