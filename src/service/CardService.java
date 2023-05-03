@@ -34,47 +34,47 @@ public class CardService {
 
     public String getPin(String cardNumber) throws Throwable {
         openConnection();
-        String query = "select pin from cardinformation where cardnumber = " + cardNumber;
+        String query = "select * from cardinformation where cardnumber = " + cardNumber;
         ResultSet rs = stmt.executeQuery(query);
         String pin = null;
         while (rs.next())
-            pin = rs.getString("pin");
+            pin = rs.getString("PIN");
         closeConnection();
         return pin;
     }
 
     public void setPin(String cardNumber, String pin) throws Throwable {
         openConnection();
-        String query = "update table cardinformation set pin = " + pin + " where cardnumber = " + cardNumber;
+        String query = "update table cardinformation set PIN = " + pin + " where CardNumber = " + cardNumber;
         stmt.executeUpdate(query);
         closeConnection();
     }
 
     public String getName(String cardNumber) throws Throwable {
         openConnection();
-        String query = "select name from cardinformation where cardnumber = " + cardNumber;
+        String query = "SELECT * FROM cardinformation WHERE CardNumber = " + cardNumber;
         ResultSet rs = stmt.executeQuery(query);
         String name = null;
         while (rs.next())
-            name = rs.getString("name");
+            name = rs.getString("CustomerName");
         closeConnection();
         return name;
     }
 
     public float getMoney(String cardNumber) throws Throwable {
         openConnection();
-        String query = "select money from cardinformation where cardnumber = " + cardNumber;
+        String query = "SELECT * FROM cardinformation WHERE CardNumber = " + cardNumber;
         ResultSet rs = stmt.executeQuery(query);
         float money = 0;
         while (rs.next())
-            money = rs.getFloat("money");
+            money = rs.getFloat("Money");
         closeConnection();
         return money;
     }
 
     public void setMoney(String cardNumber, float money) throws Throwable {
         openConnection();
-        String query = "update table cardinformation set money = " + money + " where cardnumber = " + cardNumber;
+        String query = "update cardinformation set Money = " + money + " where CardNumber = " + cardNumber;
         stmt.executeUpdate(query);
         closeConnection();
     }
