@@ -34,7 +34,7 @@ public class CardService {
 
     public String getPin(String cardNumber) throws Throwable {
         openConnection();
-        String query = "select * from cardinformation where cardnumber = " + cardNumber;
+        String query = "select * from cardinformation where CardNumber = " + cardNumber;
         ResultSet rs = stmt.executeQuery(query);
         String pin = null;
         while (rs.next())
@@ -45,7 +45,7 @@ public class CardService {
 
     public void setPin(String cardNumber, String pin) throws Throwable {
         openConnection();
-        String query = "update table cardinformation set PIN = " + pin + " where CardNumber = " + cardNumber;
+        String query = "update cardinformation set PIN = '" + pin + "' where CardNumber = " + cardNumber;
         stmt.executeUpdate(query);
         closeConnection();
     }
@@ -74,7 +74,7 @@ public class CardService {
 
     public void setMoney(String cardNumber, float money) throws Throwable {
         openConnection();
-        String query = "update cardinformation set Money = " + money + " where CardNumber = " + cardNumber;
+        String query = "update cardinformation set Money = '" + money + "'' where CardNumber = " + cardNumber;
         stmt.executeUpdate(query);
         closeConnection();
     }
