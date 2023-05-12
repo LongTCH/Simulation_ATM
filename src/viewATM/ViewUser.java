@@ -39,7 +39,7 @@ public class ViewUser extends JFrame {
 
 	public ViewUser() {
 		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("src\\picture\\logoKienLong.png"));
+				.getImage("src\\picture\\logoBIDV.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(376, 491);
 		setLocationRelativeTo(null);

@@ -35,7 +35,7 @@ public class ViewWithDrawal2 extends JFrame {
 	}
 
 	public ViewWithDrawal2() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\picture\\logoKienLong.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\picture\\logoBIDV.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(426, 250);
 		setLocationRelativeTo(null);

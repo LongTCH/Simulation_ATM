@@ -33,7 +33,7 @@ public class ViewYesNo extends JFrame {
 	}
 
 	public ViewYesNo() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\picture\\logoKienLong.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\picture\\logoBIDV.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(266, 125);
 		setLocationRelativeTo(null);

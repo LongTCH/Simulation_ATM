@@ -9,7 +9,7 @@ public class App {
         vLogin.setVisible(true);
 
         ATM atm = new ATM();
-        atm.setATM("45320000558");
+        atm.setATM("8500772003");
 
         Login login = new Login(atm);
         //

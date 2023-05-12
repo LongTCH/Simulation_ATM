@@ -35,7 +35,7 @@ public class ViewCapital extends JFrame {
 	}
 
 	public ViewCapital() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\picture\\logoKienLong.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\picture\\logoBIDV.png"));
 
 		setVisible(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

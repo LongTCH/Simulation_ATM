@@ -36,7 +36,7 @@ public class ViewTransfer1 extends JFrame {
 
 	public ViewTransfer1() {
 		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("src\\picture\\logoKienLong.png"));
+				.getImage("src\\picture\\logoBIDV.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(286, 149);
 		setLocationRelativeTo(null);

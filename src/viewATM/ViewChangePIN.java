@@ -40,7 +40,7 @@ public class ViewChangePIN extends JFrame {
 	public ViewChangePIN() {
 
 		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("src\\picture\\logoKienLong.png"));
+				.getImage("src\\picture\\logoBIDV.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(386, 450);
 		setLocationRelativeTo(null);

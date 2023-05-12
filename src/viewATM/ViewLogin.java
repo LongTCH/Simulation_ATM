@@ -43,7 +43,7 @@ public class ViewLogin extends JFrame {
 	public ViewLogin() {
 		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("src\\picture\\logoKienLong.png"));
+				.getImage("src\\picture\\logoBIDV.png"));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600, 700);
 		setLocationRelativeTo(null);
@@ -60,12 +60,12 @@ public class ViewLogin extends JFrame {
 		panelLogo.setLayout(null);
 
 		lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("src\\picture\\logoKienLong.png"));
+		lblLogo.setIcon(new ImageIcon("src\\picture\\logoBIDV.png"));
 		lblLogo.setBounds(0, 0, 140, 100);
 		panelLogo.add(lblLogo);
 
-		lblKlBank = new JLabel(" NG\u00C2N H\u00C0NG KI\u00CAN LONG BANK ");
-		lblKlBank.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+		lblKlBank = new JLabel(" BIDV BANK ");
+		lblKlBank.setFont(new Font("Times New Roman", Font.PLAIN, 34));
 		lblKlBank.setForeground(Color.WHITE);
 		lblKlBank.setBackground(new Color(47, 79, 79));
 		lblKlBank.setBounds(139, 0, 445, 100);
