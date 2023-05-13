@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.function.Function;
 
 import javax.swing.JPanel;
 
@@ -11,6 +12,7 @@ import modelATM.ATM;
 import modelATM.Login;
 import viewATM.Static;
 import viewATM.ViewIdle;
+import viewATM.ViewInfo;
 import viewATM.ViewLayout;
 import viewATM.ViewLogin;
 
@@ -134,7 +136,21 @@ public class ControllerLayout {
     }
 
     public void endTransaction() {
-        viewLayout.getCard().reject(this);
+        endTransaction("<html><h1>Mời quý khách<br> nhận lại thẻ ...</h1></html>");
+    }
+
+    public void endTransaction(String message) {
+        Function<Void, Void> rejecting = (p) -> {
+            setPanelScreen(new ViewInfo(message));
+            setControllerScreen(null);
+            return null;
+        };
+        Function<Void, Void> rejected = (p) -> {
+            setPanelScreen(new ViewIdle());
+            setControllerScreen(null);
+            return null;
+        };
+        viewLayout.getCard().reject(rejecting, rejected);
         viewLayout.getTextSTK().setText("");
     }
 }

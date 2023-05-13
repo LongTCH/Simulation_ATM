@@ -75,7 +75,7 @@ public class ViewLayout extends JFrame {
 
 		card = new CardATM();
 		card.setBackground(new Color(139, 0, 0));
-		card.setBounds(0, 399, 60, 90);
+		card.setBounds(10, 399, 60, 90);
 		getContentPane().add(card);
 
 		slot = new JPanel();

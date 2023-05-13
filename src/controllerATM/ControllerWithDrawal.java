@@ -52,7 +52,7 @@ public class ControllerWithDrawal extends ControllerScreen {
 	@Override
 	public void actionOnBtnLeftBot() {
 		ViewWithDrawal1 vWD1 = new ViewWithDrawal1();
-		controllerLayout.setPanelScreen(viewWithDrawal);
+		controllerLayout.setPanelScreen(vWD1);
 		controllerLayout.setControllerScreen(new ControllerWithDrawal1(vWD1, withDrawal, controllerLayout));
 	}
 
@@ -76,8 +76,12 @@ public class ControllerWithDrawal extends ControllerScreen {
 			Capital capital = new Capital(withDrawal.getAtm());
 			controllerLayout.setControllerScreen(new ControllerCapital(vCapital, capital, controllerLayout));
 		} catch (Throwable e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	}
+
+	@Override
+	public void actionOnBtnCancel() {
+		controllerLayout.endTransaction();
 	}
 }

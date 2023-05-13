@@ -1,11 +1,9 @@
 package modelATM;
 
+import java.util.function.Function;
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
-import controllerATM.ControllerLayout;
-import viewATM.ViewIdle;
-import viewATM.ViewInfo;
 
 public class CardATM extends JPanel {
 
@@ -55,7 +53,7 @@ public class CardATM extends JPanel {
 
 	private boolean isWaiting;
 
-	public void reject(ControllerLayout controllerLayout) {
+	public void reject(Function<Void, Void> rejecting, Function<Void, Void> rejected) {
 		isWaiting = false;
 		targetX = ix;
 		targetY = iy;
@@ -63,8 +61,7 @@ public class CardATM extends JPanel {
 
 			if (height >= iheight) {
 				isWaiting = false;
-				controllerLayout
-						.setPanelScreen(new ViewIdle());
+				rejected.apply(null);
 				if (x > targetX)
 					x = x - 10;
 				if (y < targetY)
@@ -76,9 +73,7 @@ public class CardATM extends JPanel {
 				}
 			} else {
 				if (isWaiting == false) {
-					controllerLayout
-							.setPanelScreen(new ViewInfo("<html><h1>Mời quý khách<br> nhận lại thẻ ...</h1></html>"));
-					controllerLayout.setControllerScreen(null);
+					rejecting.apply(null);
 					isWaiting = true;
 				}
 				height++;
