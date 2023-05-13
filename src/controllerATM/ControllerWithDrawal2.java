@@ -17,13 +17,15 @@ public class ControllerWithDrawal2 {
 	private WithDrawal withDrawal;
 	protected float restMoney, withMoney;
 	private ViewYesNo viewYesNo;
+	private ControllerLayout controllerLayout;
 
 	public ControllerWithDrawal2(ViewWithDrawal2 viewWithDrawal2, WithDrawal withDrawal, float restMoney,
-			float withMoney) {
+			float withMoney, ControllerLayout controllerLayout) {
 		this.viewWithDrawal2 = viewWithDrawal2;
 		this.withDrawal = withDrawal;
 		this.restMoney = restMoney;
 		this.withMoney = withMoney;
+		this.controllerLayout = controllerLayout;
 		eventWithDrawal2();
 
 	}
@@ -39,7 +41,7 @@ public class ControllerWithDrawal2 {
 				ViewWithDrawal vWD = new ViewWithDrawal();
 				vWD.setVisible(true);
 				viewWithDrawal2.dispose();
-				ControllerWithDrawal cWD = new ControllerWithDrawal(vWD, withDrawal);
+				ControllerWithDrawal cWD = new ControllerWithDrawal(vWD, withDrawal, controllerLayout);
 
 			}
 		});
@@ -60,7 +62,7 @@ public class ControllerWithDrawal2 {
 				Login lo;
 				try {
 					lo = new Login(withDrawal.getAtm());
-					ControllerLogin cl = new ControllerLogin(vLogin, lo);
+					ControllerLogin cl = new ControllerLogin(vLogin, lo, controllerLayout);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -101,7 +103,7 @@ public class ControllerWithDrawal2 {
 				Login lo;
 				try {
 					lo = new Login(withDrawal.getAtm());
-					ControllerLogin cl = new ControllerLogin(vLogin, lo);
+					ControllerLogin cl = new ControllerLogin(vLogin, lo, controllerLayout);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

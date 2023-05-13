@@ -15,10 +15,12 @@ import viewATM.ViewLogin;
 public class ControllerChangePIN {
 	private ViewChangePIN viewChangePIN;
 	private ChangePIN changePIN;
+	private ControllerLayout controllerLayout;
 
-	public ControllerChangePIN(ViewChangePIN viewChangePIN, ChangePIN changePIN) {
+	public ControllerChangePIN(ViewChangePIN viewChangePIN, ChangePIN changePIN, ControllerLayout controllerLayout) {
 		this.viewChangePIN = viewChangePIN;
 		this.changePIN = changePIN;
+		this.controllerLayout = controllerLayout;
 		eventChangePIN();
 	}
 
@@ -34,7 +36,7 @@ public class ControllerChangePIN {
 				Capital capital;
 				try {
 					capital = new Capital(changePIN.getAtm());
-					ControllerCapital cCapital = new ControllerCapital(vCapital, capital);
+					ControllerCapital cCapital = new ControllerCapital(vCapital, capital, controllerLayout);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -70,7 +72,7 @@ public class ControllerChangePIN {
 								Login lo;
 								try {
 									lo = new Login(changePIN.getAtm());
-									ControllerLogin cl = new ControllerLogin(vLogin, lo);
+									ControllerLogin cl = new ControllerLogin(vLogin, lo, controllerLayout);
 								} catch (Throwable e1) {
 									// TODO Auto-generated catch block
 									e1.printStackTrace();

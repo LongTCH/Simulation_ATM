@@ -23,11 +23,13 @@ public class ControllerTransfer {
 	private int people = 1;
 	private float transferMoney, restMoneyTransfer, restMoneyReceier;
 	private ViewYesNo viewTransfer3;
+	private ControllerLayout controllerLayout;
 
-	public ControllerTransfer(ViewTransfer viewTransfer, Transfer recharge) {
+	public ControllerTransfer(ViewTransfer viewTransfer, Transfer recharge, ControllerLayout controllerLayout) {
 		super();
 		this.viewTransfer = viewTransfer;
 		this.transfer = recharge;
+		this.controllerLayout = controllerLayout;
 		eventTransfer();
 	}
 
@@ -44,7 +46,7 @@ public class ControllerTransfer {
 				Capital capital;
 				try {
 					capital = new Capital(transfer.getAtm());
-					ControllerCapital cCapital = new ControllerCapital(vCapital, capital);
+					ControllerCapital cCapital = new ControllerCapital(vCapital, capital, controllerLayout);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -189,7 +191,7 @@ public class ControllerTransfer {
 					Login lo;
 
 					lo = new Login(transfer.getAtm());
-					ControllerLogin cl = new ControllerLogin(vLogin, lo);
+					ControllerLogin cl = new ControllerLogin(vLogin, lo, controllerLayout);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

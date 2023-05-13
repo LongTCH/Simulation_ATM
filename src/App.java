@@ -7,7 +7,7 @@ public class App {
         ViewLayout vLayout = new ViewLayout();
         vLayout.setVisible(true);
         ATM atm = new ATM();
-        atm.setATM("8500772003");
+        atm.setATM("45320000558");
         new ControllerLayout(vLayout, atm);
     }
 }

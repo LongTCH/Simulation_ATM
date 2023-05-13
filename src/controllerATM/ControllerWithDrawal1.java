@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+
 import modelATM.WithDrawal;
 import viewATM.ViewWithDrawal;
 import viewATM.ViewWithDrawal1;
@@ -13,10 +14,13 @@ public class ControllerWithDrawal1 {
 	private ViewWithDrawal1 viewWithDrawal1;
 	private WithDrawal withDrawal;
 	private float withMoney;
+	private ControllerLayout controllerLayout;
 
-	public ControllerWithDrawal1(ViewWithDrawal1 viewWithDrawal1, WithDrawal withDrawal) {
+	public ControllerWithDrawal1(ViewWithDrawal1 viewWithDrawal1, WithDrawal withDrawal,
+			ControllerLayout controllerLayout) {
 		this.viewWithDrawal1 = viewWithDrawal1;
 		this.withDrawal = withDrawal;
+		this.controllerLayout = controllerLayout;
 		eventWithDrawal1();
 
 	}
@@ -28,7 +32,7 @@ public class ControllerWithDrawal1 {
 			public void actionPerformed(ActionEvent e) {
 				ViewWithDrawal vWD = new ViewWithDrawal();
 				vWD.setVisible(true);
-				ControllerWithDrawal c = new ControllerWithDrawal(vWD, withDrawal);
+				ControllerWithDrawal c = new ControllerWithDrawal(vWD, withDrawal, controllerLayout);
 				viewWithDrawal1.dispose();
 
 			}
@@ -53,7 +57,7 @@ public class ControllerWithDrawal1 {
 									ViewWithDrawal2 v = new ViewWithDrawal2();
 									v.setVisible(true);
 									ControllerWithDrawal2 cWithDrawal2 = new ControllerWithDrawal2(v, withDrawal,
-											withDrawal.withDrawalMoney(withMoney), withMoney);
+											withDrawal.withDrawalMoney(withMoney), withMoney, controllerLayout);
 
 									viewWithDrawal1.dispose();
 								} else

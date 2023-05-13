@@ -17,11 +17,13 @@ public class ControllerRecharges {
 	private ViewRecharge viewRecharge;
 	private Recharges recharge;
 	private ViewYesNo viewYesNo;
+	private ControllerLayout controllerLayout;
 
-	public ControllerRecharges(ViewRecharge viewRecharge, Recharges recharge) {
+	public ControllerRecharges(ViewRecharge viewRecharge, Recharges recharge, ControllerLayout controllerLayout) {
 		super();
 		this.viewRecharge = viewRecharge;
 		this.recharge = recharge;
+		this.controllerLayout = controllerLayout;
 		eventRecharge();
 
 	}
@@ -37,7 +39,7 @@ public class ControllerRecharges {
 				Capital capital;
 				try {
 					capital = new Capital(recharge.getAtm());
-					ControllerCapital cCapital = new ControllerCapital(vCapital, capital);
+					ControllerCapital cCapital = new ControllerCapital(vCapital, capital, controllerLayout);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -62,7 +64,7 @@ public class ControllerRecharges {
 				Login lo;
 				try {
 					lo = new Login(recharge.getAtm());
-					ControllerLogin cl = new ControllerLogin(vLogin, lo);
+					ControllerLogin cl = new ControllerLogin(vLogin, lo, controllerLayout);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -103,7 +105,7 @@ public class ControllerRecharges {
 						Login lo;
 						try {
 							lo = new Login(recharge.getAtm());
-							ControllerLogin cl = new ControllerLogin(vLogin, lo);
+							ControllerLogin cl = new ControllerLogin(vLogin, lo, controllerLayout);
 						} catch (Throwable e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
