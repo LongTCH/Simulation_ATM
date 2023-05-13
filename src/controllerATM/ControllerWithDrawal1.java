@@ -57,7 +57,7 @@ public class ControllerWithDrawal1 extends ControllerScreen {
 									ViewWithDrawal2 v = new ViewWithDrawal2();
 									v.setVisible(true);
 									ControllerWithDrawal2 cWithDrawal2 = new ControllerWithDrawal2(v, withDrawal,
-											withDrawal.withDrawalMoney(withMoney), withMoney, controllerLayout);
+											withMoney, controllerLayout);
 
 									viewWithDrawal1.dispose();
 								} else

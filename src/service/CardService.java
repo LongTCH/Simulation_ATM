@@ -74,7 +74,7 @@ public class CardService {
 
     public void setMoney(String cardNumber, float money) throws Throwable {
         openConnection();
-        String query = "update cardinformation set Money = '" + money + "'' where CardNumber = " + cardNumber;
+        String query = "update cardinformation set Money = '" + money + "' where CardNumber = " + cardNumber;
         stmt.executeUpdate(query);
         closeConnection();
     }
