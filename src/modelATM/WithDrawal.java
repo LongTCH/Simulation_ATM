@@ -43,7 +43,7 @@ public class WithDrawal implements ObserverATM {
 		return money;
 	}
 
-	public double getFee() {
+	public float getFee() {
 		return fee;
 	}
 

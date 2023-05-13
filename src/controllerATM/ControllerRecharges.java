@@ -93,7 +93,6 @@ public class ControllerRecharges {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						viewYesNo.dispose();
 						JOptionPane.showMessageDialog(viewYesNo,
 								"Quý khách đã nộp thành công số tiền là : "
 										+ recharge.getAtm().formatMoney(rechargeMoney) + "VND" + "\n"
@@ -124,7 +123,6 @@ public class ControllerRecharges {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				viewYesNo.dispose();
 			}
 		});
 

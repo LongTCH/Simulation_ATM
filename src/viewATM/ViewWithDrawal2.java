@@ -1,129 +1,127 @@
 package viewATM;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.Color;
-import javax.swing.ImageIcon;
-import java.awt.Toolkit;
+import java.awt.Font;
 
-public class ViewWithDrawal2 extends JFrame {
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-	private JPanel contentPane;
-	private JTextField textNumberCardWithDrawal2, textWithDrawal2, textRest;
-	private JLabel lblNumberCardWithDrawal2, lblWithDrawal2, lblRest, lblVND, lblVND1;
-	private JButton btnWithDrawal2, btnCancelWithDrawal2, btnBackW2;
+public class ViewWithDrawal2 extends JPanel {
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewWithDrawal2 frame = new ViewWithDrawal2();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	private JTextField textWithDrawal2, textRest;
+	private JLabel lblWithDrawal2, lblRest, lblVND, lblVND1;
+	private JButton btnWithDrawal2, btnCancelWithDrawal2;
+	private JLabel lblVND1_1;
+	private JTextField txtMoney;
+
+	public JTextField getTxtMoney() {
+		return txtMoney;
 	}
 
-	public ViewWithDrawal2() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\picture\\logoBIDV.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(426, 250);
-		setLocationRelativeTo(null);
-		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	private JLabel lblSHinC;
+	private JLabel lblPh;
+	private JTextField txtFee;
 
-		lblNumberCardWithDrawal2 = new JLabel("   Số Tài Khoản :");
-		lblNumberCardWithDrawal2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNumberCardWithDrawal2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblNumberCardWithDrawal2.setBounds(60, 30, 110, 20);
-		contentPane.add(lblNumberCardWithDrawal2);
+	public JTextField getTxtFee() {
+		return txtFee;
+	}
+
+	private JLabel lblVND1_2;
+
+	public ViewWithDrawal2() {
+		setSize(336, 245);
+		setLayout(null);
 
 		lblWithDrawal2 = new JLabel("Số Tiền Cần Rút :");
 		lblWithDrawal2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWithDrawal2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblWithDrawal2.setBounds(60, 78, 110, 20);
-		contentPane.add(lblWithDrawal2);
+		lblWithDrawal2.setBounds(22, 61, 110, 20);
+		add(lblWithDrawal2);
 
 		lblRest = new JLabel("Số Tiền Còn Lại :");
 		lblRest.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRest.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblRest.setBounds(60, 129, 110, 20);
-		contentPane.add(lblRest);
-
-		textNumberCardWithDrawal2 = new JTextField();
-		textNumberCardWithDrawal2.setEditable(false);
-		textNumberCardWithDrawal2.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		textNumberCardWithDrawal2.setBounds(170, 31, 100, 20);
-		contentPane.add(textNumberCardWithDrawal2);
-		textNumberCardWithDrawal2.setColumns(10);
+		lblRest.setBounds(22, 130, 110, 20);
+		add(lblRest);
 
 		textWithDrawal2 = new JTextField();
 		textWithDrawal2.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		textWithDrawal2.setEditable(false);
 		textWithDrawal2.setColumns(10);
-		textWithDrawal2.setBounds(170, 79, 100, 20);
-		contentPane.add(textWithDrawal2);
+		textWithDrawal2.setBounds(142, 61, 128, 20);
+		add(textWithDrawal2);
 
 		textRest = new JTextField();
 		textRest.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		textRest.setEditable(false);
 		textRest.setColumns(10);
-		textRest.setBounds(170, 130, 100, 20);
-		contentPane.add(textRest);
+		textRest.setBounds(142, 130, 128, 20);
+		add(textRest);
 
 		lblVND1 = new JLabel("VNĐ");
 		lblVND1.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		lblVND1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVND1.setBounds(270, 79, 30, 20);
-		contentPane.add(lblVND1);
+		lblVND1.setBounds(270, 61, 30, 20);
+		add(lblVND1);
 
 		lblVND = new JLabel("VNĐ");
 		lblVND.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVND.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		lblVND.setBounds(270, 130, 30, 20);
-		contentPane.add(lblVND);
+		add(lblVND);
 
 		btnWithDrawal2 = new JButton("Rút Tiền   ");
-		btnWithDrawal2.setHorizontalAlignment(SwingConstants.LEFT);
-		btnWithDrawal2.setIcon(new ImageIcon("src\\picture\\money.png"));
 		btnWithDrawal2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		btnWithDrawal2.setBackground(new Color(102, 205, 170));
-		btnWithDrawal2.setBounds(35, 178, 146, 33);
-		contentPane.add(btnWithDrawal2);
+		btnWithDrawal2.setBounds(22, 201, 121, 33);
+		add(btnWithDrawal2);
 
 		btnCancelWithDrawal2 = new JButton("Hủy Giao Dịch");
-		btnCancelWithDrawal2.setIcon(new ImageIcon("src\\picture\\Cancel.png"));
-		btnCancelWithDrawal2.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCancelWithDrawal2.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		btnCancelWithDrawal2.setBackground(new Color(102, 205, 170));
-		btnCancelWithDrawal2.setBounds(226, 178, 146, 33);
-		contentPane.add(btnCancelWithDrawal2);
+		btnCancelWithDrawal2.setBounds(190, 201, 121, 33);
+		add(btnCancelWithDrawal2);
 
-		btnBackW2 = new JButton("");
-		btnBackW2.setIcon(new ImageIcon("src\\picture\\back.png"));
-		btnBackW2.setBounds(0, 0, 30, 20);
-		contentPane.add(btnBackW2);
-	}
+		lblVND1_1 = new JLabel("VNĐ");
+		lblVND1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVND1_1.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblVND1_1.setBounds(270, 30, 30, 20);
+		add(lblVND1_1);
 
-	public JPanel getContentPane() {
-		return contentPane;
-	}
+		txtMoney = new JTextField();
+		txtMoney.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		txtMoney.setEditable(false);
+		txtMoney.setColumns(10);
+		txtMoney.setBounds(142, 30, 128, 20);
+		add(txtMoney);
 
-	public JTextField getTextNumberCardWithDrawal2() {
-		return textNumberCardWithDrawal2;
+		lblSHinC = new JLabel("Số Tiền Hiện Có:");
+		lblSHinC.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSHinC.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblSHinC.setBounds(22, 30, 110, 20);
+		add(lblSHinC);
+
+		lblPh = new JLabel("Phí");
+		lblPh.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPh.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblPh.setBounds(22, 99, 110, 20);
+		add(lblPh);
+
+		txtFee = new JTextField();
+		txtFee.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		txtFee.setEditable(false);
+		txtFee.setColumns(10);
+		txtFee.setBounds(142, 99, 128, 20);
+		add(txtFee);
+
+		lblVND1_2 = new JLabel("VNĐ");
+		lblVND1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVND1_2.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblVND1_2.setBounds(270, 99, 30, 20);
+		add(lblVND1_2);
 	}
 
 	public JTextField getTextWithDrawal2() {
@@ -132,10 +130,6 @@ public class ViewWithDrawal2 extends JFrame {
 
 	public JTextField getTextRest() {
 		return textRest;
-	}
-
-	public JLabel getLblNumberCardWithDrawal2() {
-		return lblNumberCardWithDrawal2;
 	}
 
 	public JLabel getLblWithDrawal2() {
@@ -160,10 +154,6 @@ public class ViewWithDrawal2 extends JFrame {
 
 	public JButton getBtnCancelWithDrawal2() {
 		return btnCancelWithDrawal2;
-	}
-
-	public JButton getBtnBackW2() {
-		return btnBackW2;
 	}
 
 }

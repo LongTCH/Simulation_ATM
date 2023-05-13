@@ -179,7 +179,6 @@ public class ControllerTransfer {
 					transfer.setMoney(restMoneyReceier, viewTransfer1.getTextReceiverSTK().getText());
 					// set lại số tiền trong tài khoản sau khi chuyển của người chuyển
 					transfer.setMoney(restMoneyTransfer, transfer.getNumberCard());
-					viewTransfer3.dispose();
 					viewTransfer.dispose();
 					JOptionPane.showMessageDialog(viewTransfer3,
 							"Bạn đã chuyển thành công cho " + transfer.getNameReceiver() + "\n" + "Số Tiền là : "
@@ -203,8 +202,6 @@ public class ControllerTransfer {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				viewTransfer3.dispose();
 
 			}
 		});

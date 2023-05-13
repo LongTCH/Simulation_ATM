@@ -27,9 +27,9 @@ public class ControllerWithDrawal extends ControllerScreen {
 		if (wMoney + withDrawal.getFee() < withDrawal.getMoney()) {
 			if (withDrawal.getMoney() > wMoney + withDrawal.getFee() + withDrawal.getCardMaintenanceMoney()) {
 				ViewWithDrawal2 v = new ViewWithDrawal2();
-				controllerLayout.setPanelScreen(viewWithDrawal);
+				controllerLayout.setPanelScreen(v);
 				controllerLayout.getViewLayout().setControllerScreen(new ControllerWithDrawal2(v, withDrawal,
-						withDrawal.withDrawalMoney(wMoney), wMoney, controllerLayout));
+						wMoney, controllerLayout));
 			} else
 				JOptionPane.showMessageDialog(viewWithDrawal, "Quý khách vui lòng giữ lại 50.000 VND để duy trì thẻ");
 
