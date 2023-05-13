@@ -51,7 +51,7 @@ public class ControllerWithDrawal2 extends ControllerScreen {
 	public void actionOnBtnLeftBot() {
 		viewYesNo = new ViewYesNo();
 		controllerLayout.setPanelScreen(viewYesNo);
-		controllerLayout.getViewLayout().setControllerScreen(new ControllerYesNo(viewYesNo, this));
+		controllerLayout.setControllerScreen(new ControllerYesNo(viewYesNo, this));
 	}
 
 	@Override

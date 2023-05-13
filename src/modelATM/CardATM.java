@@ -3,6 +3,10 @@ package modelATM;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import controllerATM.ControllerLayout;
+import viewATM.ViewIdle;
+import viewATM.ViewInfo;
+
 public class CardATM extends JPanel {
 
 	int x, y, width, height;
@@ -49,11 +53,18 @@ public class CardATM extends JPanel {
 		timer.start();
 	}
 
-	public void reject() {
+	private boolean isWaiting;
+
+	public void reject(ControllerLayout controllerLayout) {
+		isWaiting = false;
 		targetX = ix;
 		targetY = iy;
 		timer = new Timer(1, (e) -> {
+
 			if (height >= iheight) {
+				isWaiting = false;
+				controllerLayout
+						.setPanelScreen(new ViewIdle());
 				if (x > targetX)
 					x = x - 10;
 				if (y < targetY)
@@ -64,8 +75,13 @@ public class CardATM extends JPanel {
 					timer.stop();
 				}
 			} else {
+				if (isWaiting == false) {
+					controllerLayout
+							.setPanelScreen(new ViewInfo("<html><h1>Mời quý khách<br> nhận lại thẻ ...</h1></html>"));
+					controllerLayout.setControllerScreen(null);
+					isWaiting = true;
+				}
 				height++;
-
 				setSize(width, height);
 			}
 		});

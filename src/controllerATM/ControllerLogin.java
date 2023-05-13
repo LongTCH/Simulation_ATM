@@ -85,8 +85,7 @@ public class ControllerLogin extends ControllerScreen {
 			Capital capital;
 			try {
 				capital = new Capital(login.getAtm());
-				controllerLayout.getViewLayout()
-						.setControllerScreen(new ControllerCapital(vcapital, capital, controllerLayout));
+				controllerLayout.setControllerScreen(new ControllerCapital(vcapital, capital, controllerLayout));
 			} catch (Throwable e1) {
 				e1.printStackTrace();
 			}

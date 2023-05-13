@@ -28,7 +28,7 @@ public class ControllerWithDrawal extends ControllerScreen {
 			if (withDrawal.getMoney() > wMoney + withDrawal.getFee() + withDrawal.getCardMaintenanceMoney()) {
 				ViewWithDrawal2 v = new ViewWithDrawal2();
 				controllerLayout.setPanelScreen(v);
-				controllerLayout.getViewLayout().setControllerScreen(new ControllerWithDrawal2(v, withDrawal,
+				controllerLayout.setControllerScreen(new ControllerWithDrawal2(v, withDrawal,
 						wMoney, controllerLayout));
 			} else
 				JOptionPane.showMessageDialog(viewWithDrawal, "Quý khách vui lòng giữ lại 50.000 VND để duy trì thẻ");
@@ -53,8 +53,7 @@ public class ControllerWithDrawal extends ControllerScreen {
 	public void actionOnBtnLeftBot() {
 		ViewWithDrawal1 vWD1 = new ViewWithDrawal1();
 		controllerLayout.setPanelScreen(viewWithDrawal);
-		controllerLayout.getViewLayout()
-				.setControllerScreen(new ControllerWithDrawal1(vWD1, withDrawal, controllerLayout));
+		controllerLayout.setControllerScreen(new ControllerWithDrawal1(vWD1, withDrawal, controllerLayout));
 	}
 
 	@Override
@@ -75,8 +74,7 @@ public class ControllerWithDrawal extends ControllerScreen {
 			ViewCapital vCapital = new ViewCapital();
 			controllerLayout.setPanelScreen(vCapital);
 			Capital capital = new Capital(withDrawal.getAtm());
-			controllerLayout.getViewLayout()
-					.setControllerScreen(new ControllerCapital(vCapital, capital, controllerLayout));
+			controllerLayout.setControllerScreen(new ControllerCapital(vCapital, capital, controllerLayout));
 		} catch (Throwable e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

@@ -18,13 +18,11 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import controllerATM.ControllerScreen;
 import modelATM.CardATM;
 
 public class ViewLayout extends JFrame {
 
 	private JPanel panelAbout, slot, panelLogo, panelNhapSTK, panelBanPhim, panelScreen;
-	private ControllerScreen controllerScreen;
 	private CardATM card;
 
 	public void setCard(CardATM card) {
@@ -325,10 +323,6 @@ public class ViewLayout extends JFrame {
 		return lblLogo;
 	}
 
-	public ControllerScreen getControllerScreen() {
-		return controllerScreen;
-	}
-
 	public JButton getBtnRightTop() {
 		return btnRightTop;
 	}
@@ -351,9 +345,5 @@ public class ViewLayout extends JFrame {
 
 	public JButton getBtnRightBot() {
 		return btnRightBot;
-	}
-
-	public void setControllerScreen(ControllerScreen controllerScreen) {
-		this.controllerScreen = controllerScreen;
 	}
 }

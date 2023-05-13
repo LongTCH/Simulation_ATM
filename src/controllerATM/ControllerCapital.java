@@ -143,7 +143,7 @@ public class ControllerCapital extends ControllerScreen {
 		User user;
 		try {
 			user = new User(capital.getAtm());
-			controllerLayout.getViewLayout().setControllerScreen(new ControllerUser(vUser, user, controllerLayout));
+			controllerLayout.setControllerScreen(new ControllerUser(vUser, user, controllerLayout));
 		} catch (Throwable e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -157,7 +157,7 @@ public class ControllerCapital extends ControllerScreen {
 			controllerLayout.setPanelScreen(vWithDrawal);
 			WithDrawal withDrawal;
 			withDrawal = new WithDrawal(capital.getAtm());
-			controllerLayout.getViewLayout().setControllerScreen(new ControllerWithDrawal(vWithDrawal,
+			controllerLayout.setControllerScreen(new ControllerWithDrawal(vWithDrawal,
 					withDrawal,
 					controllerLayout));
 		} catch (Throwable e1) {

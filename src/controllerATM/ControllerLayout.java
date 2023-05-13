@@ -16,6 +16,16 @@ import viewATM.ViewLogin;
 
 public class ControllerLayout {
     private ViewLayout viewLayout;
+    private ControllerScreen controllerScreen;
+
+    public ControllerScreen getControllerScreen() {
+        return controllerScreen;
+    }
+
+    public void setControllerScreen(ControllerScreen controllerScreen) {
+        this.controllerScreen = controllerScreen;
+    }
+
     private ATM atm;
 
     public ViewLayout getViewLayout() {
@@ -40,46 +50,46 @@ public class ControllerLayout {
         ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (viewLayout.getControllerScreen() == null)
+                if (getControllerScreen() == null)
                     return;
                 if (e.getSource() == viewLayout.getBtnOne()) {
-                    viewLayout.getControllerScreen().actionOnBtnOne();
+                    getControllerScreen().actionOnBtnOne();
                 } else if (e.getSource() == viewLayout.getBtnTwo()) {
-                    viewLayout.getControllerScreen().actionOnBtnTwo();
+                    getControllerScreen().actionOnBtnTwo();
                 } else if (e.getSource() == viewLayout.getBtnThree()) {
-                    viewLayout.getControllerScreen().actionOnBtnThree();
+                    getControllerScreen().actionOnBtnThree();
                 } else if (e.getSource() == viewLayout.getBtnFour()) {
-                    viewLayout.getControllerScreen().actionOnBtnFour();
+                    getControllerScreen().actionOnBtnFour();
                 } else if (e.getSource() == viewLayout.getBtnFive()) {
-                    viewLayout.getControllerScreen().actionOnBtnFive();
+                    getControllerScreen().actionOnBtnFive();
                 } else if (e.getSource() == viewLayout.getBtnSix()) {
-                    viewLayout.getControllerScreen().actionOnBtnSix();
+                    getControllerScreen().actionOnBtnSix();
                 } else if (e.getSource() == viewLayout.getBtnSeven()) {
-                    viewLayout.getControllerScreen().actionOnBtnSeven();
+                    getControllerScreen().actionOnBtnSeven();
                 } else if (e.getSource() == viewLayout.getBtnEight()) {
-                    viewLayout.getControllerScreen().actionOnBtnEight();
+                    getControllerScreen().actionOnBtnEight();
                 } else if (e.getSource() == viewLayout.getBtnNine()) {
-                    viewLayout.getControllerScreen().actionOnBtnNine();
+                    getControllerScreen().actionOnBtnNine();
                 } else if (e.getSource() == viewLayout.getBtnZero()) {
-                    viewLayout.getControllerScreen().actionOnBtnZero();
+                    getControllerScreen().actionOnBtnZero();
                 } else if (e.getSource() == viewLayout.getBtnEnter()) {
-                    viewLayout.getControllerScreen().actionOnBtnEnter();
+                    getControllerScreen().actionOnBtnEnter();
                 } else if (e.getSource() == viewLayout.getBtnClear()) {
-                    viewLayout.getControllerScreen().actionOnBtnClear();
+                    getControllerScreen().actionOnBtnClear();
                 } else if (e.getSource() == viewLayout.getBtnCancel()) {
-                    viewLayout.getControllerScreen().actionOnBtnCancel();
+                    getControllerScreen().actionOnBtnCancel();
                 } else if (e.getSource() == viewLayout.getBtnLeftTop()) {
-                    viewLayout.getControllerScreen().actionOnBtnLeftTop();
+                    getControllerScreen().actionOnBtnLeftTop();
                 } else if (e.getSource() == viewLayout.getBtnLeftMid()) {
-                    viewLayout.getControllerScreen().actionOnBtnLeftMid();
+                    getControllerScreen().actionOnBtnLeftMid();
                 } else if (e.getSource() == viewLayout.getBtnLeftBot()) {
-                    viewLayout.getControllerScreen().actionOnBtnLeftBot();
+                    getControllerScreen().actionOnBtnLeftBot();
                 } else if (e.getSource() == viewLayout.getBtnRightTop()) {
-                    viewLayout.getControllerScreen().actionOnBtnRightTop();
+                    getControllerScreen().actionOnBtnRightTop();
                 } else if (e.getSource() == viewLayout.getBtnRightMid()) {
-                    viewLayout.getControllerScreen().actionOnBtnRightMid();
+                    getControllerScreen().actionOnBtnRightMid();
                 } else if (e.getSource() == viewLayout.getBtnRightBot()) {
-                    viewLayout.getControllerScreen().actionOnBtnRightBot();
+                    getControllerScreen().actionOnBtnRightBot();
                 }
             }
         };
@@ -110,7 +120,7 @@ public class ControllerLayout {
         ViewLogin viewLogin = new ViewLogin();
         viewLogin.setLogin(login);
         setPanelScreen(viewLogin);
-        viewLayout.setControllerScreen(new ControllerLogin(viewLogin, login, this));
+        setControllerScreen(new ControllerLogin(viewLogin, login, this));
         viewLayout.getTextSTK().setText(atm.getNumberCard());
     }
 
@@ -124,8 +134,7 @@ public class ControllerLayout {
     }
 
     public void endTransaction() {
-        setPanelScreen(new ViewIdle());
-        viewLayout.getCard().reject();
+        viewLayout.getCard().reject(this);
         viewLayout.getTextSTK().setText("");
     }
 }

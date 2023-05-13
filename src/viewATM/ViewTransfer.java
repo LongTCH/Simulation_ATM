@@ -1,26 +1,23 @@
 package viewATM;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.border.TitledBorder;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
-import java.awt.Component;
-import javax.swing.Box;
-import javax.swing.JRadioButton;
-import javax.swing.JTextPane;
-import java.awt.Toolkit;
+import javax.swing.border.TitledBorder;
 
 public class ViewTransfer extends JFrame {
 
@@ -234,8 +231,6 @@ public class ViewTransfer extends JFrame {
 		return panelReceiver;
 	}
 
-	
-
 	public JTextField getTextRechargeMoney() {
 		return textTransferMoney;
 	}
@@ -303,7 +298,5 @@ public class ViewTransfer extends JFrame {
 	public JTextField getTextTransferMoney() {
 		return textTransferMoney;
 	}
-
-	
 
 }
