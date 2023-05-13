@@ -33,7 +33,7 @@ public class ControllerUser extends ControllerScreen {
 			controllerLayout.setPanelScreen(vCapital);
 			Capital capital;
 			capital = new Capital(user.getAtm());
-			controllerLayout.getViewLayout().setControllerScreen(new ControllerCapital(vCapital, capital,
+			controllerLayout.setControllerScreen(new ControllerCapital(vCapital, capital,
 					controllerLayout));
 		} catch (Throwable e1) {
 			// TODO Auto-generated catch block

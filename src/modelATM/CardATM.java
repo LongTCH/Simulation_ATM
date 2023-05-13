@@ -1,5 +1,7 @@
 package modelATM;
 
+import java.util.function.Function;
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -49,11 +51,17 @@ public class CardATM extends JPanel {
 		timer.start();
 	}
 
-	public void reject() {
+	private boolean isWaiting;
+
+	public void reject(Function<Void, Void> rejecting, Function<Void, Void> rejected) {
+		isWaiting = false;
 		targetX = ix;
 		targetY = iy;
 		timer = new Timer(1, (e) -> {
+
 			if (height >= iheight) {
+				isWaiting = false;
+				rejected.apply(null);
 				if (x > targetX)
 					x = x - 10;
 				if (y < targetY)
@@ -64,8 +72,11 @@ public class CardATM extends JPanel {
 					timer.stop();
 				}
 			} else {
+				if (isWaiting == false) {
+					rejecting.apply(null);
+					isWaiting = true;
+				}
 				height++;
-
 				setSize(width, height);
 			}
 		});
