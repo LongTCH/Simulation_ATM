@@ -2,8 +2,10 @@ package controllerATM;
 
 import modelATM.Capital;
 import modelATM.User;
+import modelATM.WithDrawal;
 import viewATM.ViewCapital;
 import viewATM.ViewUser;
+import viewATM.ViewWithDrawal;
 
 public class ControllerCapital extends ControllerScreen {
 	private ViewCapital viewCapital;
@@ -80,22 +82,6 @@ public class ControllerCapital extends ControllerScreen {
 		// // rút tiền
 		// viewCapital.getBtnWithdrawal().addActionListener(new ActionListener() {
 
-		// @Override
-		// public void actionPerformed(ActionEvent e) {
-		// ViewWithDrawal vWithDrawal = new ViewWithDrawal();
-		// vWithDrawal.setVisible(true);
-
-		// WithDrawal withDrawal;
-		// try {
-		// withDrawal = new WithDrawal(capital.getAtm());
-		// ControllerWithDrawal cWithDrawal = new ControllerWithDrawal(vWithDrawal,
-		// withDrawal,
-		// controllerLayout);
-		// } catch (Throwable e1) {
-		// // TODO Auto-generated catch block
-		// e1.printStackTrace();
-		// }
-
 		// }
 		// });
 		// // Chuyển tiền
@@ -166,6 +152,18 @@ public class ControllerCapital extends ControllerScreen {
 
 	@Override
 	public void actionOnBtnLeftMid() {
+		try {
+			ViewWithDrawal vWithDrawal = new ViewWithDrawal();
+			controllerLayout.setPanelScreen(vWithDrawal);
+			WithDrawal withDrawal;
+			withDrawal = new WithDrawal(capital.getAtm());
+			controllerLayout.getViewLayout().setControllerScreen(new ControllerWithDrawal(vWithDrawal,
+					withDrawal,
+					controllerLayout));
+		} catch (Throwable e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	@Override
@@ -182,6 +180,7 @@ public class ControllerCapital extends ControllerScreen {
 
 	@Override
 	public void actionOnBtnRightBot() {
+		controllerLayout.endTransaction();
 	}
 
 }

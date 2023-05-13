@@ -1,7 +1,5 @@
 package controllerATM;
 
-import javax.swing.JOptionPane;
-
 import modelATM.Capital;
 import modelATM.Login;
 import viewATM.ViewCapital;
@@ -93,8 +91,7 @@ public class ControllerLogin extends ControllerScreen {
 				e1.printStackTrace();
 			}
 		} else
-			JOptionPane.showMessageDialog(viewLogin, "Mã Pin không đúng quý khách vui lòng nhập lại",
-					"Error PIN", JOptionPane.ERROR_MESSAGE);
+			viewLogin.getLblError().setVisible(true);
 
 	}
 
