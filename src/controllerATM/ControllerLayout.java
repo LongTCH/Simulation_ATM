@@ -25,6 +25,7 @@ public class ControllerLayout {
     public ControllerLayout(ViewLayout viewLayout, ATM atm) {
         this.viewLayout = viewLayout;
         this.atm = atm;
+
         setPanelScreen(new ViewIdle());
         viewLayout.getCard().addMouseListener(new MouseAdapter() {
             @Override
@@ -120,5 +121,11 @@ public class ControllerLayout {
         viewLayout.getPanelScreen().add(panel);
         viewLayout.repaint();
         viewLayout.revalidate();
+    }
+
+    public void endTransaction() {
+        setPanelScreen(new ViewIdle());
+        viewLayout.getCard().reject();
+        viewLayout.getTextSTK().setText("");
     }
 }

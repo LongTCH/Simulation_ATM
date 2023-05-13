@@ -1,7 +1,6 @@
 package viewATM;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
@@ -24,14 +23,20 @@ import modelATM.CardATM;
 
 public class ViewLayout extends JFrame {
 
-	protected JPanel panelAbout, slot, panelLogo, panelNhapSTK, panelBanPhim, panelScreen;
+	private JPanel panelAbout, slot, panelLogo, panelNhapSTK, panelBanPhim, panelScreen;
 	private ControllerScreen controllerScreen;
-	protected CardATM card;
-	protected JButton btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnRong,
+	private CardATM card;
+
+	public void setCard(CardATM card) {
+		this.card = card;
+		repaint();
+	}
+
+	private JButton btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnRong,
 			btnThongTin, btnEnter, btnClear, btnCancel, btnZero;
-	protected JTextField textSTK;
-	protected JLabel lblKlBank, lblLogo;
-	protected JTextPane txtpnaThVo;
+	private JTextField textSTK;
+	private JLabel lblKlBank, lblLogo;
+	private JTextPane txtpnaThVo;
 	private JButton btnRightTop;
 	private JButton btnLeftTop;
 	private JButton btnLeftMid;
@@ -71,7 +76,6 @@ public class ViewLayout extends JFrame {
 		panelLogo.add(lblKlBank);
 
 		card = new CardATM();
-
 		card.setBackground(new Color(139, 0, 0));
 		card.setBounds(0, 399, 60, 90);
 		getContentPane().add(card);
@@ -223,19 +227,6 @@ public class ViewLayout extends JFrame {
 		btnLeftBot = new JButton("");
 		btnLeftBot.setBounds(10, 327, 45, 38);
 		getContentPane().add(btnLeftBot);
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewLayout f = new ViewLayout();
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
 	public JPanel getSlot() {

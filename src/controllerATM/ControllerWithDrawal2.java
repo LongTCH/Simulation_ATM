@@ -12,7 +12,7 @@ import viewATM.ViewWithDrawal;
 import viewATM.ViewWithDrawal2;
 import viewATM.ViewYesNo;
 
-public class ControllerWithDrawal2 {
+public class ControllerWithDrawal2 extends ControllerScreen {
 	private ViewWithDrawal2 viewWithDrawal2;
 	private WithDrawal withDrawal;
 	protected float restMoney, withMoney;
