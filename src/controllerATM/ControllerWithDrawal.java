@@ -18,10 +18,13 @@ public class ControllerWithDrawal {
 	private ViewWithDrawal viewWithDrawal;
 	private WithDrawal withDrawal;
 	private float wMoney;
+	private ControllerLayout controllerLayout;
 
-	public ControllerWithDrawal(ViewWithDrawal viewWithDrawal, WithDrawal withDrawal) {
+	public ControllerWithDrawal(ViewWithDrawal viewWithDrawal, WithDrawal withDrawal,
+			ControllerLayout controllerLayout) {
 		this.viewWithDrawal = viewWithDrawal;
 		this.withDrawal = withDrawal;
+		this.controllerLayout = controllerLayout;
 		eventWithDrawal();
 
 	}
@@ -70,7 +73,7 @@ public class ControllerWithDrawal {
 			public void actionPerformed(ActionEvent e) {
 				ViewWithDrawal1 vWD1 = new ViewWithDrawal1();
 				vWD1.setVisible(true);
-				ControllerWithDrawal1 c1 = new ControllerWithDrawal1(vWD1, withDrawal);
+				ControllerWithDrawal1 c1 = new ControllerWithDrawal1(vWD1, withDrawal, controllerLayout);
 				viewWithDrawal.dispose();
 
 			}
@@ -88,7 +91,7 @@ public class ControllerWithDrawal {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				ControllerLogin cl = new ControllerLogin(vLogin, lo);
+				ControllerLogin cl = new ControllerLogin(vLogin, lo, controllerLayout);
 
 				viewWithDrawal.dispose();
 
@@ -104,7 +107,7 @@ public class ControllerWithDrawal {
 				Capital capital;
 				try {
 					capital = new Capital(withDrawal.getAtm());
-					ControllerCapital cCapital = new ControllerCapital(vCapital, capital);
+					ControllerCapital cCapital = new ControllerCapital(vCapital, capital, controllerLayout);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -121,7 +124,7 @@ public class ControllerWithDrawal {
 				ViewWithDrawal2 v = new ViewWithDrawal2();
 				v.setVisible(true);
 				ControllerWithDrawal2 cWithDrawal2 = new ControllerWithDrawal2(v, withDrawal,
-						withDrawal.withDrawalMoney(wMoney), wMoney);
+						withDrawal.withDrawalMoney(wMoney), wMoney, controllerLayout);
 				viewWithDrawal.dispose();
 			} else
 				JOptionPane.showMessageDialog(viewWithDrawal, "Quý khách vui lòng giữ lại 50.000 VND để duy trì thẻ");

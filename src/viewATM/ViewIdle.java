@@ -8,8 +8,10 @@ import javax.swing.JPanel;
 
 public class ViewIdle extends JPanel {
 	protected JLabel lblKlBank, lblSTK, lblWelcome1, lblWelcome, lblLogo;
+
 	public ViewIdle() {
 		setLayout(null);
+		setSize(Static.getPanelScreenWeight, Static.getPanelScreenHeight);
 		lblWelcome1 = new JLabel("   XIN K\u00CDNH CH\u00C0O QU\u00DD KH\u00C1CH ");
 		lblWelcome1.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		lblWelcome1.setForeground(new Color(46, 139, 87));

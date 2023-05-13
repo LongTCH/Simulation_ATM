@@ -19,21 +19,23 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import modelATM.ATM;
+import controllerATM.ControllerScreen;
 import modelATM.CardATM;
-import modelATM.Login;
-import service.PanelScreen;
 
 public class ViewLayout extends JFrame {
 
-	protected JPanel panelAbout, slot, panelLogo, panelNhapSTK, panelBanPhim;
-	private PanelScreen panelScreen;
+	protected JPanel panelAbout, slot, panelLogo, panelNhapSTK, panelBanPhim, panelScreen;
+	private ControllerScreen controllerScreen;
 	protected CardATM card;
 	protected JButton btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnRong,
 			btnThongTin, btnEnter, btnClear, btnCancel, btnZero;
 	protected JTextField textSTK;
-	protected JLabel lblKlBank, lblSTK, lblLogo;
+	protected JLabel lblKlBank, lblLogo;
 	protected JTextPane txtpnaThVo;
+	private JButton btnRightTop;
+	private JButton btnLeftTop;
+	private JButton btnLeftMid;
+	private JButton btnLeftBot, btnRightMid, btnRightBot;
 
 	public ViewLayout() {
 		getContentPane().setBackground(Color.WHITE);
@@ -44,15 +46,6 @@ public class ViewLayout extends JFrame {
 		setLocationRelativeTo(null);
 
 		view();
-	}
-
-	public void setPanelScreen(JPanel panel) {
-		panelScreen.removeAll();
-		panel.setBounds(10, 10, 336, 245);
-		panel.setVisible(true);
-		panelScreen.add(panel);
-		repaint();
-		revalidate();
 	}
 
 	public void view() {
@@ -80,45 +73,21 @@ public class ViewLayout extends JFrame {
 		card = new CardATM();
 
 		card.setBackground(new Color(139, 0, 0));
-		card.setBounds(0, 359, 60, 90);
+		card.setBounds(0, 399, 60, 90);
 		getContentPane().add(card);
 
 		slot = new JPanel();
 		slot.setBackground(Color.GRAY);
 		slot.setBorder(new LineBorder(new Color(0, 0, 0), 4, true));
-		slot.setBounds(448, 329, 81, 15);
+		slot.setBounds(462, 376, 81, 15);
 		getContentPane().add(slot);
-
-		panelNhapSTK = new JPanel();
-		panelNhapSTK.setBounds(394, 221, 190, 56);
-		panelNhapSTK.setBackground(new Color(169, 169, 169));
-		panelNhapSTK.setBorder(
-				BorderFactory.createTitledBorder(null, "CARD", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
-
-		getContentPane().add(panelNhapSTK);
-		panelNhapSTK.setLayout(null);
-
-		lblSTK = new JLabel("STK");
-		lblSTK.setBounds(23, 21, 35, 23);
-		lblSTK.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblSTK.setForeground(new Color(139, 0, 0));
-		panelNhapSTK.add(lblSTK);
-
-		textSTK = new JTextField();
-		textSTK.setEditable(false);
-		textSTK.setHorizontalAlignment(SwingConstants.CENTER);
-		textSTK.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		textSTK.setBackground(Color.LIGHT_GRAY);
-		textSTK.setBounds(58, 22, 121, 20);
-		panelNhapSTK.add(textSTK);
-		textSTK.setColumns(10);
 
 		panelAbout = new JPanel();
 		panelAbout.setBackground(SystemColor.windowBorder);
 		panelAbout.setBorder(new TitledBorder(
 				new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "About",
 				TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panelAbout.setBounds(410, 377, 164, 231);
+		panelAbout.setBounds(412, 399, 164, 231);
 		getContentPane().add(panelAbout);
 		panelAbout.setLayout(null);
 
@@ -127,11 +96,28 @@ public class ViewLayout extends JFrame {
 		txtpnaThVo.setText(
 				"Đưa thẻ vào ( Click Chuột trái vào hình chữ nhật màu đỏ bên tay trái) . Lưu ý khi nhập mã Pin gồm 6 số .");
 		txtpnaThVo.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		txtpnaThVo.setBounds(10, 26, 144, 179);
+		txtpnaThVo.setBounds(10, 111, 144, 94);
 		panelAbout.add(txtpnaThVo);
 
+		panelNhapSTK = new JPanel();
+		panelNhapSTK.setBounds(10, 24, 144, 49);
+		panelAbout.add(panelNhapSTK);
+		panelNhapSTK.setBackground(new Color(169, 169, 169));
+		panelNhapSTK.setBorder(
+				BorderFactory.createTitledBorder(null, "CARD", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
+		panelNhapSTK.setLayout(null);
+
+		textSTK = new JTextField();
+		textSTK.setEditable(false);
+		textSTK.setHorizontalAlignment(SwingConstants.CENTER);
+		textSTK.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		textSTK.setBackground(Color.LIGHT_GRAY);
+		textSTK.setBounds(0, 17, 144, 21);
+		panelNhapSTK.add(textSTK);
+		textSTK.setColumns(10);
+
 		panelBanPhim = new JPanel();
-		panelBanPhim.setBounds(89, 399, 266, 231);
+		panelBanPhim.setBounds(116, 399, 266, 231);
 		getContentPane().add(panelBanPhim);
 		panelBanPhim.setBorder(new LineBorder(new Color(0, 0, 0), 5));
 		panelBanPhim.setLayout(null);
@@ -205,13 +191,38 @@ public class ViewLayout extends JFrame {
 		btnCancel.setBounds(157, 141, 80, 32);
 		panelBanPhim.add(btnCancel);
 
-		panelScreen = new PanelScreen();
+		panelScreen = new JPanel();
 		panelScreen.setLayout(null);
 		panelScreen.setBorder(new LineBorder(new Color(64, 64, 64), 10));
-		panelScreen.setBackground(Color.WHITE);
-		panelScreen.setBounds(36, 123, 356, 265);
+		panelScreen.setBackground(Color.BLACK);
+		panelScreen.setBounds(74, 122, Static.getPanelScreenWeight + 20, Static.getPanelScreenHeight + 20);
+		panelScreen.setBounds(74, 122, 336 + 20, 245 + 20);
+		panelScreen.add(new JPanel());
 		getContentPane().add(panelScreen);
-		setPanelScreen(new ViewIdle());
+
+		btnRightMid = new JButton("");
+		btnRightMid.setBounds(440, 278, 45, 38);
+		getContentPane().add(btnRightMid);
+
+		btnRightBot = new JButton("");
+		btnRightBot.setBounds(440, 327, 45, 38);
+		getContentPane().add(btnRightBot);
+
+		btnRightTop = new JButton("");
+		btnRightTop.setBounds(440, 229, 45, 38);
+		getContentPane().add(btnRightTop);
+
+		btnLeftTop = new JButton("");
+		btnLeftTop.setBounds(10, 228, 45, 38);
+		getContentPane().add(btnLeftTop);
+
+		btnLeftMid = new JButton("");
+		btnLeftMid.setBounds(10, 278, 45, 38);
+		getContentPane().add(btnLeftMid);
+
+		btnLeftBot = new JButton("");
+		btnLeftBot.setBounds(10, 327, 45, 38);
+		getContentPane().add(btnLeftBot);
 	}
 
 	public static void main(String[] args) {
@@ -225,15 +236,6 @@ public class ViewLayout extends JFrame {
 				}
 			}
 		});
-	}
-
-	public void insertCard(ATM atm) throws Throwable {
-		card.moveToTarget(slot.getX() + 10, slot.getY() + 10);
-		Login login = new Login(atm);
-		ViewLogin viewLogin = new ViewLogin();
-		viewLogin.setLogin(login);
-		setPanelScreen(viewLogin);
-		getTextSTK().setText(atm.getNumberCard());
 	}
 
 	public JPanel getSlot() {
@@ -252,9 +254,8 @@ public class ViewLayout extends JFrame {
 		return panelBanPhim;
 	}
 
-	public PanelScreen getPanelScreen() {
-		PanelScreen a = (PanelScreen) panelScreen.getComponent(0);
-		return a;
+	public JPanel getPanelScreen() {
+		return panelScreen;
 	}
 
 	public CardATM getCard() {
@@ -329,11 +330,39 @@ public class ViewLayout extends JFrame {
 		return lblKlBank;
 	}
 
-	public JLabel getLblSTK() {
-		return lblSTK;
-	}
-
 	public JLabel getLblLogo() {
 		return lblLogo;
+	}
+
+	public ControllerScreen getControllerScreen() {
+		return controllerScreen;
+	}
+
+	public JButton getBtnRightTop() {
+		return btnRightTop;
+	}
+
+	public JButton getBtnLeftTop() {
+		return btnLeftTop;
+	}
+
+	public JButton getBtnLeftMid() {
+		return btnLeftMid;
+	}
+
+	public JButton getBtnLeftBot() {
+		return btnLeftBot;
+	}
+
+	public JButton getBtnRightMid() {
+		return btnRightMid;
+	}
+
+	public JButton getBtnRightBot() {
+		return btnRightBot;
+	}
+
+	public void setControllerScreen(ControllerScreen controllerScreen) {
+		this.controllerScreen = controllerScreen;
 	}
 }

@@ -3,13 +3,13 @@ package viewATM;
 import java.awt.Font;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 
 import modelATM.Login;
-import service.PanelScreen;
 
-public class ViewLogin extends PanelScreen {
+public class ViewLogin extends JPanel {
 	private Login login;
 	private JPasswordField passwordField;
 
@@ -19,6 +19,7 @@ public class ViewLogin extends PanelScreen {
 
 	public ViewLogin() {
 		setLayout(null);
+		setSize(Static.getPanelScreenWeight, Static.getPanelScreenHeight);
 		passwordField = new JPasswordField(4);
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordField.setEchoChar('*');
@@ -33,62 +34,7 @@ public class ViewLogin extends PanelScreen {
 		add(lblNewLabel);
 	}
 
-	public void appendPassword(String c) {
-		if (passwordField.getText().length() < 6)
-			passwordField.setText(passwordField.getText() + c);
-	}
-
-	public void clearPassword() {
-		passwordField.setText("");
-	}
-
-	@Override
-	public void actionOnBtnOne() {
-		appendPassword("1");
-	}
-
-	@Override
-	public void actionOnBtnTwo() {
-		appendPassword("2");
-	}
-
-	@Override
-	public void actionOnBtnThree() {
-		appendPassword("3");
-	}
-
-	@Override
-	public void actionOnBtnFour() {
-		appendPassword("4");
-	}
-
-	@Override
-	public void actionOnBtnFive() {
-		appendPassword("5");
-	}
-
-	@Override
-	public void actionOnBtnSix() {
-		appendPassword("6");
-	}
-
-	@Override
-	public void actionOnBtnSeven() {
-		appendPassword("7");
-	}
-
-	@Override
-	public void actionOnBtnEight() {
-		appendPassword("8");
-	}
-
-	@Override
-	public void actionOnBtnNine() {
-		appendPassword("9");
-	}
-
-	@Override
-	public void actionOnBtnZero() {
-		appendPassword("0");
+	public JPasswordField getPasswordField() {
+		return passwordField;
 	}
 }
