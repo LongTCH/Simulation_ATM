@@ -96,7 +96,7 @@ public class ControllerWithDrawal1 extends ControllerScreen {
 	public void actionOnBtnCancel() {
 		controllerLayout.endTransaction();
 	}
-
+	
 	private boolean checkValid() {
 		withMoney = Float.valueOf(viewWithDrawal1.getMoney());
 		if (viewWithDrawal1.getMoney().length() != 0) {

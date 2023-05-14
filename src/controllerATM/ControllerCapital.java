@@ -1,9 +1,11 @@
 package controllerATM;
 
 import modelATM.Capital;
+import modelATM.ChangePIN;
 import modelATM.User;
 import modelATM.WithDrawal;
 import viewATM.ViewCapital;
+import viewATM.ViewChangePIN;
 import viewATM.ViewUser;
 import viewATM.ViewWithDrawal;
 
@@ -172,6 +174,17 @@ public class ControllerCapital extends ControllerScreen {
 
 	@Override
 	public void actionOnBtnRightTop() {
+		try{
+		ViewChangePIN vChangePIN = new ViewChangePIN();
+		controllerLayout.setPanelScreen(vChangePIN);
+		ChangePIN changePIN;
+		changePIN = new ChangePIN(capital.getAtm());
+		controllerLayout.setControllerScreen(new ControllerChangePIN(vChangePIN, changePIN, controllerLayout));
+		}
+		catch (Throwable e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	@Override

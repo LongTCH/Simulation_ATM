@@ -15,116 +15,96 @@ import javax.swing.border.LineBorder;
 import javax.swing.JPasswordField;
 import javax.swing.JTextPane;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ViewChangePIN extends JFrame {
+public class ViewChangePIN extends JPanel {
 
-	private JPanel contentPane, panelPIN, panelChangePIN;
 	private JPasswordField ancientPIN, newPIN, newPIN1;
-	private JLabel lblAncientPIN, lblNewPIN, lblPIN, lblNewPIN1;
-	private JButton btnChangePIN, btnBackPIN;
+	private JLabel lblAncientPIN, lblNewPIN, lblNewPIN1;
 	private JTextPane txtpnChangePIN;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewChangePIN frame = new ViewChangePIN();
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JButton btnChangePIN;
+	private JButton btnBackPIN;
+	private JLabel lbchangePIN;
 
 	public ViewChangePIN() {
+		setSize(183, 26);
+		setLayout(null);
 
-		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("src\\picture\\logoBIDV.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(386, 450);
-		setLocationRelativeTo(null);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setBorder(new LineBorder(new Color(0, 128, 128), 0));
+		setBounds(0, 0, 337, 31);
+		setBackground(new Color(176, 224, 230));
+		setLayout(null);
 
-		panelPIN = new JPanel();
-		panelPIN.setBorder(new LineBorder(new Color(0, 128, 128), 0));
-		panelPIN.setBounds(0, 0, 370, 31);
-		panelPIN.setBackground(new Color(176, 224, 230));
-		contentPane.add(panelPIN);
-		panelPIN.setLayout(null);
+		setBackground(new Color(255, 255, 255));
+		setBounds(0, 32, 337, 245);
 
-		btnBackPIN = new JButton("");
-		btnBackPIN.setIcon(new ImageIcon("src\\picture\\back.png"));
-		btnBackPIN.setBounds(2, 2, 31, 28);
-		panelPIN.add(btnBackPIN);
-
-		lblPIN = new JLabel("    Đổi Mã PIN");
-		lblPIN.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		lblPIN.setBounds(135, 2, 80, 26);
-		panelPIN.add(lblPIN);
-
-		panelChangePIN = new JPanel();
-		panelChangePIN.setBackground(new Color(255, 255, 255));
-		panelChangePIN.setBounds(0, 31, 370, 380);
-		contentPane.add(panelChangePIN);
-		panelChangePIN.setLayout(null);
-
-		btnChangePIN = new JButton("Đổi Mã PIN");
-		btnChangePIN.setForeground(Color.WHITE);
-		btnChangePIN.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnChangePIN.setBackground(new Color(0, 128, 128));
-		btnChangePIN.setBounds(135, 339, 100, 30);
-		panelChangePIN.add(btnChangePIN);
+		setLayout(null);
 
 		lblAncientPIN = new JLabel("    Mã PIN cũ");
 		lblAncientPIN.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblAncientPIN.setBounds(104, 62, 80, 30);
-		panelChangePIN.add(lblAncientPIN);
+		lblAncientPIN.setBounds(81, 37, 80, 20);
+		add(lblAncientPIN);
 
 		ancientPIN = new JPasswordField();
-		ancientPIN.setBounds(185, 62, 70, 30);
-		panelChangePIN.add(ancientPIN);
+		ancientPIN.setEditable(false);
+		ancientPIN.setBounds(171, 37, 80, 20);
+		add(ancientPIN);
 
 		lblNewPIN = new JLabel("    Mã PIN mới");
 		lblNewPIN.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblNewPIN.setBounds(104, 213, 80, 30);
-		panelChangePIN.add(lblNewPIN);
+		lblNewPIN.setBounds(81, 76, 80, 20);
+		add(lblNewPIN);
 
 		newPIN = new JPasswordField();
-		newPIN.setBounds(185, 213, 70, 30);
-		panelChangePIN.add(newPIN);
+		newPIN.setEditable(false);
+		newPIN.setBounds(171, 76, 80, 20);
+		add(newPIN);
 
 		txtpnChangePIN = new JTextPane();
 		txtpnChangePIN.setEditable(false);
-		txtpnChangePIN.setText("Lưu ý :\r\n- Mã PIN phải gồm 6 số\r\n");
+		txtpnChangePIN.setText("Lưu ý : Mã PIN phải gồm 6 số\r\n");
 		txtpnChangePIN.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		txtpnChangePIN.setBackground(new Color(211, 211, 211));
-		txtpnChangePIN.setBounds(105, 123, 150, 59);
-		panelChangePIN.add(txtpnChangePIN);
+		txtpnChangePIN.setBounds(81, 138, 174, 30);
+		add(txtpnChangePIN);
 
 		lblNewPIN1 = new JLabel("    Mã PIN mới");
 		lblNewPIN1.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblNewPIN1.setBounds(104, 270, 80, 30);
-		panelChangePIN.add(lblNewPIN1);
+		lblNewPIN1.setBounds(81, 107, 80, 20);
+		add(lblNewPIN1);
 
 		newPIN1 = new JPasswordField();
-		newPIN1.setBounds(185, 270, 70, 30);
-		panelChangePIN.add(newPIN1);
+		newPIN1.setEditable(false);
+		newPIN1.setBounds(171, 107, 80, 20);
+		add(newPIN1);
+
+		btnChangePIN = new JButton("Tiếp tục");
+		btnChangePIN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnChangePIN.setBounds(238, 198, 89, 23);
+		add(btnChangePIN);
+
+		btnBackPIN = new JButton("Quay lại");
+		btnBackPIN.setBounds(23, 198, 89, 23);
+		add(btnBackPIN);
+
+		lbchangePIN = new JLabel("");
+		lbchangePIN.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		lbchangePIN.setBounds(23, 179, 290, 14);
+		add(lbchangePIN);
+
+		JLabel lblDMP = new JLabel("Đổi mã PIN");
+		lblDMP.setForeground(new Color(0, 128, 192));
+		lblDMP.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblDMP.setBounds(108, 12, 119, 14);
+		add(lblDMP);
 	}
 
-	public JPanel getContentPane() {
-		return contentPane;
-	}
-
-	public JPanel getPanelPIN() {
-		return panelPIN;
-	}
-
-	public JPanel getPanelChangePIN() {
-		return panelChangePIN;
+	public JLabel getlbchangePIN() {
+		return lbchangePIN;
 	}
 
 	public JPasswordField getAncientPIN() {
@@ -141,10 +121,6 @@ public class ViewChangePIN extends JFrame {
 
 	public JLabel getLblNewPIN() {
 		return lblNewPIN;
-	}
-
-	public JLabel getLblPIN() {
-		return lblPIN;
 	}
 
 	public JButton getBtnChangePIN() {
@@ -166,5 +142,4 @@ public class ViewChangePIN extends JFrame {
 	public JButton getBtnBackPIN() {
 		return btnBackPIN;
 	}
-
 }
