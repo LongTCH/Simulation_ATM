@@ -1,7 +1,5 @@
 package controllerATM;
 
-import javax.swing.JOptionPane;
-
 import modelATM.Capital;
 import modelATM.WithDrawal;
 import viewATM.ViewCapital;
@@ -31,10 +29,10 @@ public class ControllerWithDrawal extends ControllerScreen {
 				controllerLayout.setControllerScreen(new ControllerWithDrawal2(v, withDrawal,
 						wMoney, controllerLayout));
 			} else
-				JOptionPane.showMessageDialog(viewWithDrawal, "Quý khách vui lòng giữ lại 50.000 VND để duy trì thẻ");
+				viewWithDrawal.getLblError().setText("Quý khách vui lòng giữ lại 50.000 VND để duy trì thẻ");
 
 		} else
-			JOptionPane.showMessageDialog(viewWithDrawal, "Số tiền trong tài khoản của bạn không đủ ");
+			viewWithDrawal.getLblError().setText("Số tiền trong tài khoản của bạn không đủ ");
 	}
 
 	@Override

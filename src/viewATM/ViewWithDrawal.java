@@ -15,6 +15,11 @@ public class ViewWithDrawal extends JPanel {
 	private JLabel lblNumberCardWithDrawal, lblWithDrawal, lblText;
 	private JButton btn100, btn200, btn500, btn1000, btnCancelWithDrawal, btnOther;
 	private JTextField txtMoney;
+	private JLabel lblError;
+
+	public JLabel getLblError() {
+		return lblError;
+	}
 
 	public JTextField getTxtMoney() {
 		return txtMoney;
@@ -26,7 +31,7 @@ public class ViewWithDrawal extends JPanel {
 		panel1 = new JPanel();
 		panel1.setBackground(new Color(176, 224, 230));
 
-		panel1.setBounds(0, 0, 326, 34);
+		panel1.setBounds(0, 0, 336, 34);
 		add(panel1);
 		panel1.setLayout(null);
 
@@ -75,20 +80,27 @@ public class ViewWithDrawal extends JPanel {
 		lblText.setHorizontalAlignment(SwingConstants.CENTER);
 		lblText.setForeground(new Color(0, 128, 128));
 		lblText.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblText.setBounds(45, 95, 255, 20);
+		lblText.setBounds(42, 73, 255, 20);
 		add(lblText);
 
 		JLabel lblSTinHin = new JLabel("Số tiền hiện có");
 		lblSTinHin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSTinHin.setForeground(new Color(0, 128, 128));
 		lblSTinHin.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblSTinHin.setBounds(45, 45, 255, 20);
+		lblSTinHin.setBounds(42, 37, 255, 20);
 		add(lblSTinHin);
 
 		txtMoney = new JTextField();
 		txtMoney.setEditable(false);
-		txtMoney.setBounds(93, 64, 162, 20);
+		txtMoney.setBounds(90, 56, 162, 20);
 		add(txtMoney);
 		txtMoney.setColumns(10);
+
+		lblError = new JLabel("");
+		lblError.setHorizontalAlignment(SwingConstants.CENTER);
+		lblError.setForeground(Color.RED);
+		lblError.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+		lblError.setBounds(28, 100, 294, 20);
+		add(lblError);
 	}
 }
